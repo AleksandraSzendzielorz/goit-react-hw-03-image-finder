@@ -3,4 +3,9 @@
   grid-template-columns: 1fr;
   grid-gap: 16px;
   padding-bottom: 24px;
+  font-size: 33px;
+  text-align: center;
+}
+.errorMessage {
+  font-size: 33px;
 }

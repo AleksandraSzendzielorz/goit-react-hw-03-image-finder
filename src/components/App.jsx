@@ -21,11 +21,8 @@ export const App = () => {
 
   const timerRef = useRef(null);
 
-  const handleForm = async event => {
+  const handleForm = (event, inputValue) => {
     event.preventDefault();
-
-    const form = event.currentTarget;
-    let inputValue = form.elements.search.value.trim('');
     setImages([]);
     console.log(
       `handleForm: input value - ${inputValue}, current page - ${currentPage}`
@@ -34,13 +31,10 @@ export const App = () => {
     if (!inputValue) {
       const errorMessage = 'Please fill the search field';
       setError(errorMessage);
-      return;
+      return <div className={css.errorMessage}>{errorMessage}</div>;
     }
-
     setSearchValue(inputValue);
     setCurrentPage(1);
-
-    form.reset();
   };
 
   const handleOpen = event => {
@@ -60,7 +54,7 @@ export const App = () => {
   };
 
   const fetchData = async () => {
-    const query = `https://pixabay.com/api/?q=${searchValue}&page=${currentPage}&key=42513703-cc305044521a10f5f63ac2280&image_type=photo&orientation=horizontal&per_page=12`;
+    const query = `https://pixabay.com/api/?q=${searchValue}&page=${currentPage}&key=43488285-94d76aad4f65df3a3d61f010f&image_type=photo&orientation=horizontal&per_page=12`;
     console.log('fetchData');
     try {
       const response = await fetch(query);
