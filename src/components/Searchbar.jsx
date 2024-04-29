@@ -1,6 +1,6 @@
 import css from '../styles/Searchbar.module.css';
 import React, { useState } from 'react';
-import MySvg from '../svg/Search.svg';
+import MySvg from '../svg/search.svg';
 
 export const Searchbar = ({ handleForm }) => {
   const [searchInput, setSearchInput] = useState('');
